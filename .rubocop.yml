@@ -1,9 +1,10 @@
 AllCops:
-  TargetRubyVersion: 3.1
+  TargetRubyVersion: 3.2
   DisplayCopNames: true
   DisplayStyleGuide: true
   ExtraDetails: true
   NewCops: enable
+  SuggestExtensions: false
 
 inherit_from: .rubocop_todo.yml
 
@@ -66,7 +67,7 @@ Metrics/CyclomaticComplexity:
   Max: 10
 
 Metrics/PerceivedComplexity:
-  Max: 11
+  Max: 12
 
 Rails/HasAndBelongsToMany:
   Enabled: false

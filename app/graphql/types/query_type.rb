@@ -4,13 +4,20 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    field :user, Types::UserType, null: false do
+    field :user, Types::UserType, null: true do
       argument :ident, String, required: true
     end
-    field :users, [Types::UserType], null: false
+    field :users, [Types::UserType], null: false do
+      argument :limit, Integer, required: false
+      argument :order, String, required: false
+    end
 
-    def users
-      User.all
+    # 'order' cannot use mapped attributes, needs full name, like 'okta.employeeStartDate'
+    def users(order: nil, limit: nil)
+      users = User.all
+      users = users.sort({ order => -1 }) if order
+      users = users.limit(limit) if limit
+      users
     end
 
     def user(ident:)

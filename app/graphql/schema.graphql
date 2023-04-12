@@ -22,8 +22,8 @@ type OrgUnit {
 }
 
 type Query {
-  user(ident: String!): User!
-  users: [User!]!
+  user(ident: String!): User
+  users(limit: Int, order: String): [User!]!
 }
 
 type Tag {

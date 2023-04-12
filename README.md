@@ -15,7 +15,7 @@ Features:
 * Sync + combine user data from different systems into a flexible schema (MongoDB)
 * Overwriting of defined fields
 * Extensible crawlers to collect user data from different backend systems
-* JSON APIs
+* REST & GraphQL JSON APIs
 * Storing user images
 * Supporting location/room/coordinates per user
 
@@ -26,7 +26,7 @@ As a persistent storage, the app uses [MongoDB](https://www.mongodb.com/).
 The simplest way is to start it in a container (set a local path as 'local_volume'
 to persist the database):
 
-`docker run -d --name geekos-mongo -v <local_volume>:/data/db -p 27017:27017 mongo:5.0`
+`docker run -d --name geekos-mongo -v <local_volume>:/data/db -p 27017:27017 mongo:6.0`
 
 Geekos reads its configuration from environment variables, or from the file `config/application.yml`
 using [figaro](https://github.com/laserlemon/figaro).
